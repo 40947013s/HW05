@@ -209,12 +209,10 @@ void change_1( uint8_t *arr , int32_t size , FILE *output )
     fwrite( D , Q , 1 , output );
 } 
 
-int main(  int argc , char *argv[] ) 
+int main(int argc , char *argv[]) 
 {
     FILE *input ,*output;
-    int32_t c = 0;
-    int32_t index = 0;
-    int32_t condition = 0;
+    int32_t c = 0, index = 0, condition = 0;
     char Filename[1024] , filename[1024];
     uint8_t *Content;
     while ( ( c = getopt_long( argc, argv, "e:d:o:", long_options, &index ) ) != -1 )
@@ -233,8 +231,7 @@ int main(  int argc , char *argv[] )
             case 'e':
             condition = 1;
             strcpy( filename , optarg );
-            break;
-            
+            break;            
         }
         if( condition == 1 )
         {
@@ -258,14 +255,8 @@ int main(  int argc , char *argv[] )
             fread( content , Size , 1 , input );
             for(int i=Size-1;i>=0;i--)
             {
-                if( content[i] == 61 )
-                {
-                    Size --;
-                }
-                else
-                {
-                    break;
-                }
+                if( content[i] == 61 ) Size --;
+                else break;
             }
             change_1( content , Size , output );
         }
