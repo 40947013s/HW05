@@ -55,7 +55,7 @@ int main(int argc , char *argv[])
     }
     ull encode[3];
     
-    for(int i = 0; i <= times; i++)
+    for(int i = 0; i < times; i++)
     {
         if((info = fopen("/proc/meminfo" , "rb")) == NULL)
         {
