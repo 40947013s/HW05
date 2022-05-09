@@ -4,7 +4,6 @@
 #include <string.h>
 #include <unistd.h>
 #include <getopt.h>
-#include <ctype.h>
 
 struct option long_options[] = 
 {  
@@ -31,7 +30,7 @@ int main(int argc , char *argv[])
     int counter = 0, c, interval = 0, times = 0, u = 1;
     double denominator = 1;
     char unit[3][3] = {"B", "KB", "MB"};
-    while(( c = getopt_long( argc, argv, "s:c:012b", long_options, 0)) != -1)
+    while((c = getopt_long( argc, argv, "s:c:012b", long_options, 0)) != -1)
     {
         switch(c)
         {
@@ -55,7 +54,7 @@ int main(int argc , char *argv[])
     }
     ull encode[3];
     
-    for(int i = 0; i < times; i++)
+    for(int i = 0; i <= times; i++)
     {
         if((info = fopen("/proc/meminfo" , "rb")) == NULL)
         {
