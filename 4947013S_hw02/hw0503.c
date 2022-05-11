@@ -82,11 +82,6 @@ void change( uint8_t *arr , int32_t size , FILE *output )
         {
             d[i] += b2[i][j] * pow(2,5-j);
         }
-        for(int j=0;j<6;j++)
-        {
-            //printf("%d ",b2[i][j]);
-        }
-        //printf("%d\n",d[i]);
     }
     char D[Q];
     for(int i=0;i<Q;i++)
@@ -112,7 +107,6 @@ void change( uint8_t *arr , int32_t size , FILE *output )
         {
             D[i] = 47;
         }
-        //printf( "%c" , D[i] );
     }
     int32_t trivial = ( ( times + 4 ) * 6 - all) / 6;
     char ans[Q+trivial];
@@ -204,7 +198,6 @@ void change_1( uint8_t *arr , int32_t size , FILE *output )
     for(int i=0;i<Q;i++)
     {
         D[i] = d[i];
-        //printf("%c", ascii[d[i]] );
     }
     fwrite( D , Q , 1 , output );
 } 
