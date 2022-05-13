@@ -149,8 +149,6 @@ int main(int argc , char *argv[])
         
         if(strncmp(ori.header, "tag", 3) != 0 && strncmp(ori.header, "TAG", 3) != 0)
         {
-            printf("%s\n", ori.header);
-            
             printf("%s do not have id3v1 header!\n", argv[i]);
             continue;
         }
@@ -186,14 +184,18 @@ int main(int argc , char *argv[])
         if(state == 7) ori.genre = find(temp);
         
         if(del == false)
+        {
             fwrite(&ori, sizeof(Tag), 1, tmp);
+            printf("1");
+        }
         fclose(fp); fclose(tmp);
-        FILE *new_fp = fopen(argv[i] , "w+");
+        FILE *new_fp = fopen(argv[i] , "w");
         FILE *read = fopen("temp.mp3", "r");
-        
-        c = malloc(size+128);
-        fread(c, sizeof(char), size+128, read);
-        fwrite(c, sizeof(char), size+128, new_fp);
+
+        size = del ? size : size+128;
+        c = malloc(size);
+        fread(c, sizeof(char), size, read);
+        fwrite(c, sizeof(char), size, new_fp);
         remove("temp.mp3");
     } 
     return 0;
