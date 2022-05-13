@@ -56,7 +56,7 @@ void list_print(char *str)
     printf("Year: ");
     for(int i = 0; i < 4; i++) printf("%c", ori.year[i]);
     printf("\n");
-    if(ori.genre > 191) printf("Genre: NULL\n");
+    if(ori.genre > 126) printf("Genre: NULL\n");
     else printf("Genre: %s (%d)\n", str, ori.genre);
     printf("Comment: ");
     for(int i = 0; i < 28; i++) printf("%c", ori.comment[i]);
@@ -157,7 +157,7 @@ int main(int argc , char *argv[])
             char *str = malloc(128);
             printf("%s :\n", argv[i]);
             FILE *fp = fopen("genre.txt", "r");
-            if(ori.genre > 192) str = 0;
+            if(ori.genre > 126) str = 0;
             else
             {
                 for(int j = 0; j < ori.genre; j++)
